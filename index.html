@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device- width, initial-scale=1.0">
+	<meta name="author" content="David Xu">
+	<title>Clicker Game</title>
+
+	<link rel="stylesheet" href="./styles/index.css"/>
+	
+</head>
+<body>
+	<section>
+		<div class="main">
+			<div class="left">
+				<h3>Coins: <span class="coin-count">0</h3>
+				<div class="coin-img-container">
+					<img id="big-coin-img" src="./assets/images/big_coin.png" alt="" srcset="" draggable="false">
+				</div>			
+			</div>
+
+			<script id="upgrade-button-template" type="text/template">
+				<div class= "item-container" id="{{&name}}-upgrade">
+					<div class="left-section">
+						<img src="{{imgPath}}" alt="" class="item-img">
+						<div class="mid-section">
+							<h4 class="item-title">{{name}}</h4>
+							<div class="power-ups">	</div>
+							<div class="cost-info">
+								<p>Cost: <span class="item-cost">{{cost}}</span>&nbsp;<span class ='coin-emoji'>&#129689</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="right-section">
+						<div class="level-display">Level: <span class="upgrade-level">0</span></div>
+						<div class="power-up-display">POWER UP!!!</div>
+					</div>
+				</div>
+			</script>
+
+			<script id="building-button-template" type="text/template">
+				<div class= "item-container" id="{{&name}}-building">
+					<div class="left-section">
+						<img src="{{imgPath}}" alt="" class="item-img">
+						<div class="mid-section">
+							<h4 class="item-title">{{name}}</h4>
+							<div class="cost-info">
+								<p>Cost: <span class="item-cost">{{cost}}</span>&nbsp;<span class ='coin-emoji'>&#129689</span></p>
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="right-section">Amount: <span class="building-amount">0</span></div>
+				</div>
+			</script>
+
+			<script id="upgrade-pop-up-template" type="text/template">
+				<div class= "item-info" id="{{&name}}-pop-up">
+					
+					<p>
+						<!--Text Begin-->
+						+<span class="upgrade-increase">{{increase}}</span> {{infoText}}
+						<!--Text End-->
+					</p>
+				</div>
+			</script>
+
+			<script id="building-pop-up-template" type="text/template">
+				<div class= "item-info" id="{{&name}}-pop-up">
+					<p>
+						each {{name}} is producing <span class="building-production">{{production}}</span> gems per second
+					</p>
+				</div>
+			</script>
+
+			<div class="right">
+				<nav class="top-nav">
+					<div id="upgrade-nav-button">Upgrades</div>
+					<div id="skills-nav-button">Skills</div>
+				</nav>
+				<div class="upper-half">
+					<div class="upgrades-section">
+						<!-- The upgrade buttons will be created via the script-->
+					
+					</div>
+					<div class="skills-section">
+					
+					</div>
+				</div>
+
+				<div class="bottom-half">
+					<div class= "buildings-section">
+						<!-- The building buttons will also be created via the script-->
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="statistics">
+			<div class="texts">
+				<p>Coins/sec: <span id="cps-text">0</span></p>
+				<p>Coins/click: <span id="cpc-text">0</span>
+				<br/><span class="extra-info">Criticals: Chance: <span id="critical-click-chance-text"></span>% Multiplier: <span id="critical-click-multi-text"></span></span></p>
+			</div>
+		</div>
+
+		<div class="util-buttons">
+			<button class="util-button" id="save-button">
+				Save
+			</button>
+			<button class="util-button" id="load-button">
+				Load
+			</button>
+		</div>
+
+		<div class='notification-anchor'>
+			<div id='notification-template' class='notification'>
+				template notification
+			</div>
+		</div>
+
+		<div class="pop-up-anchor">
+			<div class="upgrade-pop-ups"></div>
+			<div class="building-pop-ups"></div>
+		</div>
+	</section>
+
+	<script type="module" src="./scripts/index.js"></script>
+</body>
+</html>
